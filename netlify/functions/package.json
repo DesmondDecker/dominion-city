@@ -1,0 +1,18 @@
+{
+  "name": "dominion-city-app-functions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Netlify Functions backend — kept as its own package.json (not the repo root) so Netlify installs these dependencies even though [build].base is set to client.",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "mongoose": "^8.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^9.1.6"
+  }
+}

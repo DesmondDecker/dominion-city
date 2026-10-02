@@ -1,0 +1,27 @@
+[build]
+  base = "client"
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  # Proxy the Vite dev server so hot-reload works alongside Netlify Functions
+  command = "npm --prefix client run dev"
+  port = 8888
+  targetPort = 5173
+  framework = "#custom"
+  publish = "dist"
+
+[functions]
+  directory = "../netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA fallback so client-side routing works on refresh
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
